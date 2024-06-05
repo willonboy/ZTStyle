@@ -1,73 +1,27 @@
-# ZTStyle
+//
+//  ViewController.swift
+//  ZTStyle
+//
+//  Created by trojan on 2024/6/4.
+//
 
-A lightweight Swift library for applying styles to UI components using a chainable syntax.
-
-一个轻量级的 Swift 库，用于使用链式语法应用样式到 UI 组件。
-
-## Features 特性
-
-- Chainable syntax for applying styles to UI components.
-- Support for custom styles.
-- Extensible to various UIKit components.
-
-- 使用链式语法应用样式到 UI 组件。
-- 支持自定义样式。
-- 可扩展到各种 UIKit 组件。
-
-## Installation 安装
-
-### Swift Package Manager (SPM)
-
-To integrate `ZTStyle` into your Xcode project using SPM:
-
-1. Open your project in Xcode.
-2. Go to `File` > `Add Packages`.
-3. Enter the repository URL: `https://github.com/willonboy/ZTStyle`.
-4. Choose the version and click `Add Package`.
-
-### CocoaPods
-
-To integrate `ZTStyle` into your Xcode project using CocoaPods:
-
-1. Add the following line to your `Podfile`:
-
-```ruby
-pod 'ZTStyle', :git => 'https://github.com/willonboy/ZTStyle.git'
-```
-
-2. Run `pod install`.
-
-### Swift 包管理器 (SPM)
-
-使用 SPM 将 `ZTStyle` 集成到您的 Xcode 项目中：
-
-1. 在 Xcode 中打开您的项目。
-2. 转到 `文件` > `添加包`。
-3. 输入仓库 URL：`https://github.com/willonboy/ZTStyle`。
-4. 选择版本并点击 `添加包`。
-
-### CocoaPods
-
-使用 CocoaPods 将 `ZTStyle` 集成到您的 Xcode 项目中：
-
-1. 在您的 `Podfile` 中添加以下行：
-
-```ruby
-pod 'ZTStyle', :git => 'https://github.com/willonboy/ZTStyle.git'
-```
-
-2. 运行 `pod install`。
-
-## Usage 使用
-
-### Basic Example 基本示例
-
-```swift
 import UIKit
 import ZTChain
-import ZTStyle
 
-// Define a custom style
+extension UIView {
+    @discardableResult
+    public func addTo(_ superview:UIView) -> Self {
+        superview.addSubview(self)
+        return self
+    }
+    
+    @discardableResult
+    public func cornerRadius(_ radius:CGFloat) -> Self {
+        _ = self.layer.zt.cornerRadius(radius).masksToBounds(true)
+        return self
+    }
+}
+
 extension ZTStyle where Subject: UILabel {
     static var title: ZTStyle {
         return .custom { label in
@@ -88,22 +42,27 @@ extension ZTStyle where Subject: UILabel {
     }
 }
 
-// Apply style to a UILabel
-let titleLabel = UILabel().zt
-    .style(.title)
-    .subject
-```
+extension ZTStyle where Subject: UIButton {
+    static var primary: ZTStyle {
+        return .custom { button in
+            button.zt.backgroundColor(.systemBlue)
+                .subject.setTitleColor(.white, for: .normal)
+        }
+    }
+
+    static var secondary: ZTStyle {
+        return .custom { button in
+            button.zt.backgroundColor(.lightGray)
+                .subject.setTitleColor(.black, for: .normal)
+        }
+    }
+}
 
 
-### Custom View Example 自定义视图示例
-
-```swift
-import UIKit
-import ZTChain
-import ZTStyle
 
 
-// Custom view class
+
+// 自定义视图类
 class StyledContainerView: UIView {
     
     let titleLabel: UILabel
@@ -135,6 +94,7 @@ class StyledContainerView: UIView {
         addSubview(primaryButton)
         addSubview(secondaryButton)
         
+        // 使用 frame 进行布局
         let padding: CGFloat = 10.0
         let buttonHeight: CGFloat = 44.0
         
@@ -146,7 +106,7 @@ class StyledContainerView: UIView {
     }
 }
 
-// Define styles for the custom view
+// 样式定义扩展
 extension ZTStyle where Subject: StyledContainerView {
     static var style1: ZTStyle {
         return .custom { container in
@@ -170,13 +130,54 @@ extension ZTStyle where Subject: StyledContainerView {
 }
 
 
-// Usage example
-StyledContainerView(frame: CGRect(x: 10, y: 260, width: 350, height: 250)).zt.style(.style1).subject.addTo(view)
-    
-StyledContainerView(frame: CGRect(x: 10, y: 500, width: 350, height: 250)).zt.style(.style2).subject.addTo(view)
 
-```
 
-## License 许可证
 
-This project is licensed under the MPL-2.0.
+
+
+
+
+
+
+class ViewController: UIViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Usage Example
+        UILabel(frame: CGRect(x: 20, y: 50, width: 350, height: 20)).zt
+            .style(.title)
+            .text("style .title")
+            .subject.addTo(view)
+
+        UILabel(frame: CGRect(x: 20, y: 90, width: 350, height: 20)).zt
+            .style(.subtitle)
+            .text("style .subtitle")
+            .subject.addTo(view)
+
+        UILabel(frame: CGRect(x: 20, y: 130, width: 350, height: 20)).zt
+            .style(.body)
+            .text("style .body")
+            .subject.addTo(view)
+
+        let primaryButton = UIButton(frame: CGRect(x: 20, y: 170, width: 350, height: 30)).zt
+            .style(.primary)
+            .subject
+            .cornerRadius(CGFloat(4))
+            .addTo(view)
+        primaryButton.setTitle("style .primary", for: .normal)
+
+        let secondaryButton = UIButton(frame: CGRect(x: 20, y: 210, width: 350, height: 30)).zt
+            .style(.secondary)
+            .subject
+            .cornerRadius(CGFloat(6))
+            .addTo(view)
+        secondaryButton.setTitle("style .secondary", for: .normal)
+        
+        // 使用示例
+        StyledContainerView(frame: CGRect(x: 10, y: 260, width: 350, height: 250)).zt.style(.style1).subject.addTo(view)
+        
+        StyledContainerView(frame: CGRect(x: 10, y: 500, width: 350, height: 250)).zt.style(.style2).subject.addTo(view)
+    }
+}
+
