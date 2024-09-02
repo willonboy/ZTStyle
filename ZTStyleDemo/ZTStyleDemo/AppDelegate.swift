@@ -16,10 +16,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow()
             .zt
             .frame(UIScreen.main.bounds)
-            .backgroundColor(.white)
+            .backgroundColor(.red)
             .rootViewController(ViewController())
             .subject
         self.window?.makeKeyAndVisible()
+        
+        self.window?.zt.style(
+            .custom({ $0.backgroundColor = .yellow }),
+            .custom({ $0.backgroundColor = .blue }),
+            .custom({ $0.backgroundColor = .systemPurple })
+        )
         
         return true
     }

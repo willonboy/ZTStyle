@@ -16,8 +16,10 @@ import ZTChain
 
 public extension ZTWrapper {
     @discardableResult
-    func style(_ style: ZTStyle<Subject>) -> ZTWrapper {
-        style.style(to: subject)
+    func style(_ styles: ZTStyle<Subject>...) -> ZTWrapper {
+        styles.forEach { style in
+            style.style(to: subject)
+        }
         return self
     }
 }

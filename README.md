@@ -92,6 +92,15 @@ extension ZTStyle where Subject: UILabel {
 let titleLabel = UILabel().zt
     .style(.title)
     .subject
+    
+// Apply multi style to UILabel
+let titleLabel = UILabel().zt
+    .style( .title, 
+            .subtitle, 
+            .body,
+            .custom({ $0.backgroundColor = .systemPurple }) // concise and convenient approach.
+          )
+    .subject
 ```
 
 
