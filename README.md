@@ -1,18 +1,18 @@
 # ZTStyle
 
-A lightweight Swift library for applying styles to UI components using a chainable syntax.
+A lightweight Swift library for customizing and applying styles to UIKit or SwiftUI components, just like using CSS styles.
 
-一个轻量级的 Swift 库，用于使用链式语法应用样式到 UI 组件。
+一个轻量的Swift库，像使用CSS Style样式那样定制和应用样式到UIKit或SwiftUI控件上。
 
 ## Features 特性
 
 - Chainable syntax for applying styles to UI components.
 - Support for custom styles.
-- Extensible to various UIKit components.
+- Extensible to various UIKit components and SwiftUI Views.
 
 - 使用链式语法应用样式到 UI 组件。
 - 支持自定义样式。
-- 可扩展到各种 UIKit 组件。
+- 可扩展到各种 UIKit & SwiftUI 组件。
 
 ## Installation 安装
 
@@ -100,7 +100,7 @@ let titleLabel = UILabel().zt
             .body,
             .custom({ $0.backgroundColor = .systemPurple }) // concise and convenient approach.
           )
-    .subject
+    .build() // call subject or build()
 ```
 
 
@@ -182,8 +182,33 @@ extension ZTStyle where Subject: StyledContainerView {
 // Usage example
 StyledContainerView(frame: CGRect(x: 10, y: 260, width: 350, height: 250)).zt.style(.style1).subject.addTo(view)
     
-StyledContainerView(frame: CGRect(x: 10, y: 500, width: 350, height: 250)).zt.style(.style2).subject.addTo(view)
+StyledContainerView(frame: CGRect(x: 10, y: 500, width: 350, height: 250)).zt.style(.style2).build().addTo(view)
 
+```
+
+### SwiftUI demo
+```swift
+extension Text {
+    static let style1:ZTSwiftUIStyle<Text> = .custom { text in
+        text.bold().foregroundColor(.green)
+    }
+    static let style2:ZTSwiftUIStyle<Text> = .custom { text in
+        text.italic().foregroundColor(.red)
+    }
+    static let style3:ZTSwiftUIStyle<Text> = .custom { text in
+        text.underline(true)
+    }
+}
+
+#Preview {
+    Text("Hello world")
+        .style( Text.style1
+                ,Text.style2
+                ,Text.style3
+                ,.custom { $0.foregroundColor(.yellow) }
+                ,.custom({ $0.font(.title)})
+        )
+}
 ```
 
 ## License 许可证

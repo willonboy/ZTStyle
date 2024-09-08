@@ -14,6 +14,7 @@
 		971D902C2C0F66C500EE3A49 /* ZTStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971D902A2C0F66C500EE3A49 /* ZTStyle.swift */; };
 		971D90302C0F66D200EE3A49 /* ZTChain in Frameworks */ = {isa = PBXBuildFile; productRef = 971D902F2C0F66D200EE3A49 /* ZTChain */; };
 		971D90522C0F697800EE3A49 /* ZTStyle.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 971D90512C0F697800EE3A49 /* ZTStyle.podspec */; };
+		97AE3FA62C8E026F008D515D /* SwiftUIStyleTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AE3FA52C8E026F008D515D /* SwiftUIStyleTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		971D90222C0F667700EE3A49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		971D902A2C0F66C500EE3A49 /* ZTStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZTStyle.swift; sourceTree = "<group>"; };
 		971D90512C0F697800EE3A49 /* ZTStyle.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ZTStyle.podspec; path = ../ZTStyle.podspec; sourceTree = "<group>"; };
+		97AE3FA52C8E026F008D515D /* SwiftUIStyleTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIStyleTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 			children = (
 				971D90142C0F667500EE3A49 /* AppDelegate.swift */,
 				971D90182C0F667500EE3A49 /* ViewController.swift */,
+				97AE3FA52C8E026F008D515D /* SwiftUIStyleTest.swift */,
 				971D901D2C0F667700EE3A49 /* Assets.xcassets */,
 				971D901F2C0F667700EE3A49 /* LaunchScreen.storyboard */,
 				971D90222C0F667700EE3A49 /* Info.plist */,
@@ -164,6 +167,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				971D90192C0F667500EE3A49 /* ViewController.swift in Sources */,
+				97AE3FA62C8E026F008D515D /* SwiftUIStyleTest.swift in Sources */,
 				971D902C2C0F66C500EE3A49 /* ZTStyle.swift in Sources */,
 				971D90152C0F667500EE3A49 /* AppDelegate.swift in Sources */,
 			);
@@ -315,7 +319,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -342,7 +346,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
