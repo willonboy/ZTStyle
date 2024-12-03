@@ -213,4 +213,4 @@ extension Text {
 
 ## License 许可证
 
-This project is licensed under the MPL-2.0.
+This project is licensed under the AGPLv3.
