@@ -2,6 +2,8 @@
 
 A lightweight Swift library for customizing and applying styles to UIKit or SwiftUI components, just like using CSS styles.
 
+This is currently the only solution that enables CSS-like styling for all UIKit objects.
+
 一个轻量的Swift库，像使用CSS Style样式那样定制和应用样式到UIKit或SwiftUI控件上。
 
 ## Features 特性
