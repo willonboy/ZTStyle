@@ -17,7 +17,7 @@ let package = Package(
     targets: [
         .target(
             name: "ZTStyle",
-            dependencies: []),
+            dependencies: ["ZTChain"]),
     ],
     swiftLanguageVersions: [.v4_2, .v5]
 )
