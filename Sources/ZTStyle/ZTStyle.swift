@@ -32,6 +32,7 @@ public extension ZTWrapper {
     }
 }
 
+// better than struct
 public enum ZTStyle<Subject> {
     case custom((Subject) -> Void)
 
