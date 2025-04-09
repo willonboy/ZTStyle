@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'ZTStyle'
-  s.version          = '2.0.0'
+  s.version          = '3.0.0'
   s.summary          = 'A lightweight Swift library for customizing and applying styles to UIKit or SwiftUI components, just like using CSS styles.'
 
   s.description      = <<-DESC
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 
   s.platforms = { :ios => '13.0', :osx => '10.15' }
 
-  s.swift_version = '4.2'
+  s.swift_version = '5.0'
   
-  s.dependency 'ZTChain', '~> 1.0.0'
+  s.dependency 'ZTChain', '~> 2.0.0'
 end

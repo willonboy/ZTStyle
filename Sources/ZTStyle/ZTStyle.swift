@@ -22,7 +22,7 @@
 import ZTChain
 import SwiftUI
 
-public extension ZTWrapper {
+public extension ZTWrapper where Subject: UIView {
     @discardableResult
     func style(_ styles: ZTStyle<Subject>...) -> ZTWrapper {
         styles.forEach { style in
@@ -33,10 +33,10 @@ public extension ZTWrapper {
 }
 
 // better than struct
-public enum ZTStyle<Subject> {
+public enum ZTStyle<Subject> where Subject: UIView {
     case custom((Subject) -> Void)
 
-    func apply(to subject: Subject) {
+    public func apply(to subject: Subject) {
         switch self {
         case .custom(let styleClosure):
             styleClosure(subject)
@@ -48,10 +48,10 @@ public enum ZTStyle<Subject> {
 // ===================  SwiftUI Support  ===================
 
 
-public enum ZTSwiftUIStyle<Subject> {
+public enum ZTSwiftUIStyle<Subject> where Subject: View {
     case custom((Subject) -> Subject)
 
-    func apply(to subject: Subject) -> Subject {
+    public func apply(to subject: Subject) -> Subject {
         switch self {
         case .custom(let styleClosure):
             return styleClosure(subject)
