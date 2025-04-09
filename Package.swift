@@ -4,7 +4,7 @@ import PackageDescription
 let package = Package(
     name: "ZTStyle",
     platforms: [
-        .iOS(.v11), .macOS(.v10_15)
+        .iOS(.v13), .macOS(.v10_15)
     ],
     products: [
         .library(
@@ -19,5 +19,5 @@ let package = Package(
             name: "ZTStyle",
             dependencies: ["ZTChain"]),
     ],
-    swiftLanguageVersions: [.v4_2, .v5]
+    swiftLanguageVersions: [.v5]
 )

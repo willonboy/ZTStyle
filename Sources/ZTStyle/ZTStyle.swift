@@ -59,7 +59,6 @@ public enum ZTSwiftUIStyle<Subject> where Subject: View {
     }
 }
 
-@available(iOS 13, *)
 public extension View {
     func style(_ styles: ZTSwiftUIStyle<Self>...) -> some View {
         var copy = self
