@@ -43,28 +43,3 @@ public enum ZTStyle<Subject> where Subject: UIView {
         }
     }
 }
-
-
-// ===================  SwiftUI Support  ===================
-
-
-public enum ZTSwiftUIStyle<Subject> where Subject: View {
-    case custom((Subject) -> Subject)
-
-    public func apply(to subject: Subject) -> Subject {
-        switch self {
-        case .custom(let styleClosure):
-            return styleClosure(subject)
-        }
-    }
-}
-
-public extension View {
-    func style(_ styles: ZTSwiftUIStyle<Self>...) -> some View {
-        var copy = self
-        styles.forEach { style in
-            copy = style.apply(to:copy)
-        }
-        return copy
-    }
-}
