@@ -20,7 +20,7 @@
 //
 
 import ZTChain
-import SwiftUI
+import UIKit
 
 public extension ZTWrapper where Subject: UIView {
     @discardableResult
